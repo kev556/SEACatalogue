@@ -25,6 +25,7 @@
 // Your final submission should have much more data than this, and 
 // you should use more than just an array of strings to store it all.
 let items = data;
+let dump = [];
 
 // This function adds cards the page to display the data in the array
 function showCards() {
@@ -59,10 +60,6 @@ function editCardContent(card, newTitle, newImageURL, newlocation) {
 
     const cardInfo = card.querySelector("h5");
     cardInfo.textContent = newlocation;
-    // You can use console.log to help you debug!
-    // View the output by right clicking on your website,
-    // select "Inspect", then click on the "Console" tab
-    console.log("new card:", newTitle, "- html: ", card);
 }
 
 // This calls the addCards() function when the page is first loaded
@@ -75,4 +72,22 @@ function quoteAlert() {
 function removeLastCard() {
     items.pop(); // Remove last item in titles array
     showCards(); // Call showCards again to refresh
+}
+
+function weaponSelector(name) {
+    if (document.querySelector("#"+ name).checked) {
+        for (i = dump.length - 1; i >= 0; i++) {
+            if (dump[i].WpnType == name)
+                items.shift(dump.splice(i, 1));
+        }
+        showCards();
+    }
+    else {
+        for (i = items.length - 1; i >= 0; i--) {
+            if (items[i].WpnType == name) {
+                dump.push(items.splice(i, 1));
+            }
+        }
+        showCards();
+    }
 }
