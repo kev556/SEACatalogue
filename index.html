@@ -16,67 +16,49 @@
     </header>
     <div id= "content-container">
         <div id= "options-container">
-            <div id="option">Weapon Type</div>
-                <div id="option-inner">
-                    <input id = "Dagger" type="checkbox" onchange="weaponSelector('Dagger')" checked/> Dagger
-                </div>
-                <div id="option-inner">
-                    <input id = "StraightSword" type="checkbox" onchange="weaponSelector('StraightSword')" checked/> Straight Sword</div>
-                <div id="option-inner">
-                    <input id = "Greatsword" type="checkbox" onchange="weaponSelector('Greatsword')" checked/> GreatSword</div>
-                <div id="option-inner">
-                    <input id = "UltraGreatSword" type="checkbox" onchange="weaponSelector('UltraGreatSword')" checked/> Ultra Greatsword </div>
-                <div id="option-inner">
-                    <input id = "CurvedSword" type="checkbox" onchange="weaponSelector('CurvedSword')" checked/> Curved Sword</div>
-                <div id="option-inner">
-                    <input id = "CurvedGreatSword" type="checkbox" onchange="weaponSelector('CurvedGreatSword')" checked/> Curved Greatsword</div>
-                <div id="option-inner">
-                    <input id = "Katana" type="checkbox" onchange="weaponSelector('Katana')" checked/> Katana</div>
-                <div id="option-inner">
-                    <input id = "Rapier" type="checkbox" onchange="weaponSelector('Rapier')" checked/> Rapier</div>
-                <div id="option-inner">
-                    <input id = "Axe" type="checkbox" onchange="weaponSelector('Axe')" checked/> Axe</div>
-                <div id="option-inner">
-                    <input id = "GreatAxe" type="checkbox" onchange="weaponSelector('GreatAxe')" checked/> Greataxe</div>
-                <div id="option-inner">
-                    <input id = "Hammer" type="checkbox" onchange="weaponSelector('Hammer')" checked/> Hammer</div>
-                <div id="option-inner">
-                    <input id = "GreatHammer" type="checkbox" onchange="weaponSelector('GreatHammer')" checked/> Great Hammer</div>
-                <div id="option-inner">
-                    <input id = "Spear" type="checkbox" onchange="weaponSelector('Spear')" checked/> Spear</div>
-                <div id="option-inner">
-                    <input id = "Halberd" type="checkbox" onchange="weaponSelector('Halberd')" checked/> Halberd</div>
-                <div id="option-inner">
-                    <input id = "Whip" type="checkbox" onchange="weaponSelector('Whip')" checked/> Whip</div>
-                <div id="option-inner">
-                    <input id = "Fist" type="checkbox" onchange="weaponSelector('Fist')" checked/> Fist</div>
-                <div id="option-inner">
-                    <input id = "Bow" type="checkbox" onchange="weaponSelector('Bow')" checked/> Bow</div>
-                <div id="option-inner">
-                        <input id = "GreatBow" type="checkbox" onchange="weaponSelector('GreatBow')" checked/> Greatbow</div>
-                <div id="option-inner">
-                    <input id = "CrossBow" type="checkbox" onchange="weaponSelector('CrossBow')" checked/> Crossbow</div>
-                <div id="option-inner">
-                    <input id = "Catalyst" type="checkbox" onchange="weaponSelector('Catalyst')" checked/> Catalyst</div>
-                <div id="option-inner">
-                    <input id = "Flame" type="checkbox" onchange="weaponSelector('Flame')" checked/> Flame</div>
-                <div id="option-inner">
-                    <input id = "Talisman" type="checkbox" onchange="weaponSelector('Talisman')" checked/> Talisman</div>
-                <div id="option-inner">
-                    <input id = "Lantern" type="checkbox" onchange="weaponSelector('Lantern')" checked/> Lantern</div>
-                <div id="option-inner">
-                    <input id = "Sorcery" type="checkbox" onchange="weaponSelector('Sorcery')" checked/> Sorcery</div>
-                <div id="option-inner">
-                    <input id = "Pyromancy" type="checkbox" onchange="weaponSelector('Pyromancy')" checked/> Pyromancy</div>
-                <div id="option-inner">
-                    <input id = "Miracle" type="checkbox" onchange="weaponSelector('Miracle')" checked/> Miracle</div>
+            <div id="remove">Remove Weapon Type<br/>
+                <button id="option-inner" onclick="removeWpn('Dagger')">Dagger</button> <br/>
+                <button id="option-inner" onclick="removeWpn('StraightSword')">Straight Sword</button><br/>
+                <button id="option-inner" onclick="removeWpn('Greatsword')">Greatsword</button><br/>
+                <button id="option-inner" onclick="removeWpn('UltraGreatSword')">Ultra Greatsword </button><br/>
+                <button id="option-inner" onclick="removeWpn('CurvedSword')">Curved Sword</button><br/>
+                <button id="option-inner" onclick="removeWpn('CurvedGreatSword')">Curved Greatsword</button><br/>
+                <button id="option-inner" onclick="removeWpn('Katana')">Katana</button><br/>
+                <button id="option-inner" onclick="removeWpn('Rapier')">Rapier</button><br/>
+                <button id="option-inner" onclick="removeWpn('Axe')">Axe</button><br/>
+                <button id="option-inner" onclick="removeWpn('GreatAxe')">Greataxe</button><br/>
+                <button id="option-inner" onclick="removeWpn('Hammer')">Hammer</button><br/>
+                <button id="option-inner" onclick="removeWpn('GreatHammer')">Great Hammer</button><br/>
+                <button id="option-inner" onclick="removeWpn('Spear')">Spear</button><br/>
+                <button id="option-inner" onclick="removeWpn('Halberd')">Halberd</button><br/>
+                <button id="option-inner" onclick="removeWpn('Whip')">Whip</button><br/>
+                <button id="option-inner" onclick="removeWpn('Fist')">Fist</button><br/>
+                <button id="option-inner" onclick="removeWpn('Bow')">Bow</button><br/>
+                <button id="option-inner" onclick="removeWpn('GreatBow')">Greatbow</button><br/>
+                <button id="option-inner" onclick="removeWpn('CrossBow')">Crossbow</button><br/>
+                <button id="option-inner" onclick="removeWpn('Catalyst')">Catalyst</button><br/>
+                <button id="option-inner" onclick="removeWpn('Flame')">Flame</button><br/>
+                <button id="option-inner" onclick="removeWpn('Talisman')">Talisman</button><br/>
+                <button id="option-inner" onclick="removeWpn('Lantern')">Lantern</button><br/>
+                <button id="option-inner" onclick="removeWpn('Sorcery')">Sorcery</button><br/>
+                <button id="option-inner" onclick="removeWpn('Pyromancy')">Pyromancy</button><br/>
+                <button id="option-inner" onclick="removeWpn('Miracle')">Miracle</button><br/>
+            </div>
+            <button id="sort" onclick="sortWpn()">Sort (A-Z)</button>
+            <div class="card" style="display: none;">
+            <div class="card-content">
+                <h2>TV Show Title</h2>
+                <img src="" alt="Dark Souls Weapon">
+                <h5></h5>
+            </div>
+        </div>
         </div>
         <div id="card-container">
             
         </div>
         <div class="card" style="display: none;">
             <div class="card-content">
-                <h2>TV Show Title</h2>
+                <h2>Weapon Name</h2>
                 <img src="" alt="Dark Souls Weapon">
                 <h5></h5>
             </div>
