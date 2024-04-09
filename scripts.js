@@ -24,9 +24,27 @@
  */
 // Your final submission should have much more data than this, and 
 // you should use more than just an array of strings to store it all.
-let items = data;
-let dump = [];
 
+let items = data;
+
+function init() {
+    document.addEventListener("DOMContentLoaded", showCards());
+
+    const searchInput = document.getElementById("searchinput");
+    const weapons = document.getElementsByClassName("card");
+
+    searchInput.addEventListener("keyup", (event) => {
+        const searchQuery = event.target.value.toLowerCase();
+        for (i = 1; i < weapons.length; i++) {
+            wpn = weapons[i];
+            wpnname = wpn.querySelector("h2").innerHTML;
+            if (wpnname.toLowerCase().includes(searchQuery))
+                wpn.style.display = "block";
+            else
+                wpn.style.display = "none";
+        }
+    });
+}
 // This function adds cards the page to display the data in the array
 function showCards() {
     const cardContainer = document.getElementById("card-container");
@@ -36,11 +54,10 @@ function showCards() {
     let imageURL;
     let location;
 
-    for (let item of items) {
+    for (const item of items) {
         name = item.name;
         imageURL = item.url;
         location = item.location;
-
 
         const nextCard = templateCard.cloneNode(true); // Copy the template card
         editCardContent(nextCard, name, imageURL, location); // Edit title and image
@@ -58,36 +75,18 @@ function editCardContent(card, newTitle, newImageURL, newlocation) {
     cardImage.src = newImageURL;
     cardImage.alt = newTitle + " Image";
 
-    const cardInfo = card.querySelector("h5");
+    const cardInfo = card.querySelector("h3");
     cardInfo.textContent = newlocation;
 }
 
-// This calls the addCards() function when the page is first loaded
-document.addEventListener("DOMContentLoaded", showCards);
-
-function quoteAlert() {
-    console.log("Button Clicked!");
-}
-
-function removeLastCard() {
-    items.pop(); // Remove last item in titles array
-    showCards(); // Call showCards again to refresh
-}
-
-function weaponSelector(name) {
-    if (document.querySelector("#"+ name).checked) {
-        for (i = dump.length - 1; i >= 0; i++) {
-            if (dump[i].WpnType == name)
-                items.shift(dump.splice(i, 1));
+function removeWpn(name) {
+    for (i = items.length - 1; i >= 0; i--) {
+        if (items[i].WpnType == name) {
+            items.splice(i, 1);
         }
-        showCards();
     }
-    else {
-        for (i = items.length - 1; i >= 0; i--) {
-            if (items[i].WpnType == name) {
-                dump.push(items.splice(i, 1));
-            }
-        }
-        showCards();
-    }
+    showCards();
+}
+function restore() {
+    location.reload();
 }
