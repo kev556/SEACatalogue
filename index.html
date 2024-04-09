@@ -10,12 +10,18 @@
     <script type="text/javascript" src="scripts.js"></script>
 </head>
 
-<body>
+<body onload = init()>
     <header class="main-header">
         <h1 class="title">DARK SOULS I WEAPONS</h1>
     </header>
     <div id= "content-container">
         <div id= "options-container">
+
+            <div id="search">
+                <label for="searchinput">Find Weapon</label>
+                <input id="searchinput" type="text" placeholder="Enter name of weapon:" style="background-color: black; color: white;">
+            </div> <br/>
+
             <div id="remove">Remove Weapon Type<br/>
                 <button id="option-inner" onclick="removeWpn('Dagger')">Dagger</button> <br/>
                 <button id="option-inner" onclick="removeWpn('StraightSword')">Straight Sword</button><br/>
@@ -42,26 +48,23 @@
                 <button id="option-inner" onclick="removeWpn('Lantern')">Lantern</button><br/>
                 <button id="option-inner" onclick="removeWpn('Sorcery')">Sorcery</button><br/>
                 <button id="option-inner" onclick="removeWpn('Pyromancy')">Pyromancy</button><br/>
-                <button id="option-inner" onclick="removeWpn('Miracle')">Miracle</button><br/>
+                <button id="option-inner" onclick="removeWpn('Miracle')">Miracle</button><br/><br/>
             </div>
-            <button id="sort" onclick="sortWpn()">Sort (A-Z)</button>
+
+            <div id="res"> Restore List <br/>
+                <button id="restore" onclick="restore(items)">Reset</button>
+            </div>
+
             <div class="card" style="display: none;">
-            <div class="card-content">
-                <h2>TV Show Title</h2>
-                <img src="" alt="Dark Souls Weapon">
-                <h5></h5>
+                <div class="card-content">
+                    <h2>|</h2>
+                    <img src="" alt="Dark Souls Weapon">
+                    <h3></h3>
+                </div>
             </div>
-        </div>
         </div>
         <div id="card-container">
             
-        </div>
-        <div class="card" style="display: none;">
-            <div class="card-content">
-                <h2>Weapon Name</h2>
-                <img src="" alt="Dark Souls Weapon">
-                <h5></h5>
-            </div>
         </div>
     </div>
 </body>
