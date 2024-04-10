@@ -1,39 +1,14 @@
-/**
- * Data Catalog Project Starter Code - SEA Stage 2
- *
- * This file is where you should be doing most of your work. You should
- * also make changes to the HTML and CSS files, but we want you to prioritize
- * demonstrating your understanding of data structures, and you'll do that
- * with the JavaScript code you write in this file.
- * 
- * The comments in this file are only to help you learn how the starter code
- * works. The instructions for the project are in the README. That said, here
- * are the three things you should do first to learn about the starter code:
- * - 1 - Change something small in index.html or style.css, then reload your 
- *    browser and make sure you can see that change. 
- * - 2 - On your browser, right click anywhere on the page and select
- *    "Inspect" to open the browser developer tools. Then, go to the "console"
- *    tab in the new window that opened up. This console is where you will see
- *    JavaScript errors and logs, which is extremely helpful for debugging.
- *    (These instructions assume you're using Chrome, opening developer tools
- *    may be different on other browsers. We suggest using Chrome.)
- * - 3 - Add another string to the titles array a few lines down. Reload your
- *    browser and observe what happens. You should see a fourth "card" appear
- *    with the string you added to the array, but a broken image.
- * 
- */
-// Your final submission should have much more data than this, and 
-// you should use more than just an array of strings to store it all.
+let items = data; // Global array for all dsweapon objects, reflects what user sees on the screen
 
-let items = data;
+function init() { // Called upon document loading, ensuring functions do not call prior to loading
+    document.addEventListener("DOMContentLoaded", showCards()); // Makes double sure
 
-function init() {
-    document.addEventListener("DOMContentLoaded", showCards());
+    const searchInput = document.getElementById("searchinput"); // Creates object for searchbar
+    const weapons = document.getElementsByClassName("card"); // Document object storing all card objects
 
-    const searchInput = document.getElementById("searchinput");
-    const weapons = document.getElementsByClassName("card");
-
-    searchInput.addEventListener("keyup", (event) => {
+    /* Creates a function that executes the search as soon as an input is registered in the searchbar
+     Any cards not containing the string entered by the user will be hidden */
+    searchInput.addEventListener("keyup", (event) => { 
         const searchQuery = event.target.value.toLowerCase();
         for (i = 1; i < weapons.length; i++) {
             wpn = weapons[i];
@@ -52,7 +27,7 @@ function showCards() {
     const templateCard = document.querySelector(".card");
     let name;
     let imageURL;
-    let location;
+    let location; // Added another field to store the location a weapon can be found
 
     for (const item of items) {
         name = item.name;
@@ -78,10 +53,10 @@ function editCardContent(card, newTitle, newImageURL, newlocation) {
     const cardInfo = card.querySelector("h3");
     cardInfo.textContent = newlocation;
 }
-
-function removeWpn(name) {
+// Iterates through items, removing them if the weapon type is the same
+function removeWpn(type) {
     for (i = items.length - 1; i >= 0; i--) {
-        if (items[i].WpnType == name) {
+        if (items[i].WpnType == type) {
             items.splice(i, 1);
         }
     }
